@@ -20,7 +20,7 @@ body{
     border-color: transparent;
 
 }
-.key-card:hover{
+.key-card:hover, .key-card:focus{
     -webkit-box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
     -moz-box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
     box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
@@ -29,14 +29,7 @@ body{
     transform: scale(1.001); 
 }
 
-.key-card:focus{
-    -webkit-box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
-    -moz-box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
-    box-shadow: 0px 0px 17px -4px rgba(0, 0, 0, 0.427);
-    cursor: pointer;
-    transition: 0.3s ease;
-    transform: scale(1.001); 
-}
+
 .img{
     height: 200px;
     border-radius: 20px;

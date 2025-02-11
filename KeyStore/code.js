@@ -5,7 +5,7 @@ const keysCollection = {
       imagen: 'https://t3.ftcdn.net/jpg/00/96/32/56/360_F_96325690_aELgxkFwB27obriVwToq7x8cQOpIPCbq.jpg',
       precio: 564
     },
-    key545GTwo: {
+    keyTwo: {
       nombre: 'bLUE',
       modelo: '545G',
       imagen: 'https://t3.ftcdn.net/jpg/00/96/32/56/360_F_96325690_aELgxkFwB27obriVwToq7x8cQOpIPCbq.jpg',
