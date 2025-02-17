@@ -1,0 +1,37 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+#form, .comment-form > form{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#form > input, .comment-form > form > input{
+    flex-grow: 1;
+}
+.question{
+    background-color: rgba(151, 67, 67, 0.668);
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0px 10px 0px 10px;
+    flex-flow: row wrap;
+}
+
+.question > p{
+    flex-grow: 1;
+}
+
+.icon{
+    width: 20px;
+    cursor: pointer;
+}
