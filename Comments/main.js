@@ -16,8 +16,7 @@ const keys = Object.keys(miStorage)
 
 function commentForm(id){
     const form = document.createElement('form')
-    form.setAttribute('id', `input-${Number(id)+1}`)
-
+    form.className = 'comment-form'
     const input = document.createElement('input')
     input.className = 'false'
     const btn = document.createElement('button')
@@ -27,7 +26,7 @@ function commentForm(id){
         input.setAttribute('value',e.target.value)
      })
 
-    btn.addEventListener('click',()=>{
+    btn.addEventListener('click',(e)=>{
         const questionKey = miStorage.key(id)
         const value = miStorage.getItem(questionKey)
         let array = value ? JSON.parse(value) : []
@@ -50,20 +49,19 @@ for(let[key,value] of Object.entries(miStorage)){
     div.className = 'question'
 
     const comments = document.createElement('section')
+    comments.className = 'comment-section'
+    comments.setAttribute('id', `comments-${keys.indexOf(key)+1}`)
+
     const questionComments = value ? JSON.parse(value) : []
 
     for(let i = 0;i < questionComments.length; i++){
         const div = document.createElement('div')
         const p = document.createElement('p')
-        p.textContent = questionComments[i]
+        p.textContent = `--> ${questionComments[i]}`
         div.appendChild(p)
         comments.appendChild(div)
     }
-
-    const commentContainer = document.createElement('div')
-    commentContainer.className = 'comment-form'
-
-    
+    comments.appendChild(commentForm(keys.indexOf(key)))
 
     const p =  document.createElement('p')
 
@@ -71,21 +69,24 @@ for(let[key,value] of Object.entries(miStorage)){
     deleteIcon.setAttribute('src', './img/deleteIcon.webp')
     deleteIcon.className = 'icon'
 
-    const commentIcon = document.createElement('img')
-    commentIcon.setAttribute('src', './img/commentIcon.png')
+    const commentIcon = document.createElement('input')
     commentIcon.setAttribute('id', keys.indexOf(key))
+    commentIcon.setAttribute('value','Reply')
+    commentIcon.readOnly = true
+
+    commentIcon.className = 'comment-btn'
 
     commentIcon.className = 'icon false'
     
     commentIcon.addEventListener('click', (e)=>{
         if(commentIcon.className.includes('false')){
-            commentContainer.appendChild(commentForm(e.target.id))
+            questionContainer.appendChild(comments)
             commentIcon.classList.replace("false", "true");
 
         }else{
             commentIcon.classList.replace("true", "false");
-            const form = document.querySelector(`#input-${Number(e.target.id)+1}`)
-            form.remove()
+            const commenstSection = document.querySelector(`#comments-${Number(e.target.id)+1}`)
+            commenstSection.remove()
         }
     })
 
@@ -93,10 +94,7 @@ for(let[key,value] of Object.entries(miStorage)){
 
     div.appendChild(p)
     div.appendChild(commentIcon)
-    div.appendChild(deleteIcon)
     questionContainer.appendChild(div)
-    questionContainer.appendChild(comments)
-    questionContainer.appendChild(commentContainer)
 
     section.appendChild(questionContainer)
 
