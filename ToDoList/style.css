@@ -63,3 +63,14 @@ body{
     flex-grow: 3;
     margin: 0;
 }
+
+@media screen and (max-width:818px) {
+    .main-container{
+        width: 85%;
+    }
+
+    .task-icon{
+        height: 20px;
+    }
+    
+}
