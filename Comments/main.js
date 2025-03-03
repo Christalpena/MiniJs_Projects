@@ -39,12 +39,14 @@ function commentForm(id){
 
     return form
 }
-
+const colors = ['#433D8B','#8E1616','#2E236C','#2A0944','#8B9A46','#3D0240']
 for(let[key,value] of Object.entries(miStorage)){
 
     const questionContainer = document.createElement('div')
     questionContainer.className = 'question-main-container'
-
+    const color = Math.floor(Math.random() * 6)
+    questionContainer.setAttribute("style", `background-color: ${colors[color]}`)
+    
     const div = document.createElement('div')
     div.className = 'question'
 
